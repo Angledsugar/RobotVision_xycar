@@ -49,8 +49,12 @@ $ cd ~/xycar_ws && catkin_make
 ### 실행 방법
 Check eth0: intet 000.000.000.000  
 $ ifconfig  
-Open terminal  
-Terminal 1 => $ roslaunch rosbridge_server rosbridge_websocket.launch   
+Open terminal
+
+Terminal 1   
+```bash
+$ roslaunch rosbridge_server rosbridge_websocket.launch
+```  
 Terminal 2 => $ ~/xycar_ws/src/RobotVision_xycar/xycar_sim_driving/xycar3dsimulator.x86_64   
 Input ip => "ws://000.000.000.000:9090"  
 Terminal 3 => $ roslaunch assignment driving.launch   
