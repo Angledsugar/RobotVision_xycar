@@ -49,15 +49,20 @@ $ cd ~/xycar_ws && catkin_make
 ### 실행 방법
 Check eth0: intet 000.000.000.000  
 $ ifconfig  
-Open terminal
-
-Terminal 1   
+Open terminal   
 ```bash
+# Terminal 1  
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 ```  
-Terminal 2 => $ ~/xycar_ws/src/RobotVision_xycar/xycar_sim_driving/xycar3dsimulator.x86_64   
-Input ip => "ws://000.000.000.000:9090"  
-Terminal 3 => $ roslaunch assignment driving.launch   
+```bash  
+Terminal 2  
+$ ~/xycar_ws/src/RobotVision_xycar/xycar_sim_driving/xycar3dsimulator.x86_64   
+# Unity is on, Input Ubuntu(WSL2) IP => "ws://{000.000.000.000}:9090"  
+```
+```bash
+Terminal 3  
+$ roslaunch assignment driving.launch   
+```
 
 # Assignment1 : OpenCV로 차선, 신호등 인식하기
 First class : 22.10.18  
