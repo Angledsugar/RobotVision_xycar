@@ -47,9 +47,11 @@ $ git clone https://github.com/Angledsugar/RobotVision_xycar.git
 $ cd ~/xycar_ws && catkin_make  
 
 ### 실행 방법
-Check eth0: intet 000.000.000.000  
-$ ifconfig  
-Open terminal   
+```bash
+# Check eth0: intet 000.000.000.000
+$ ifconfig # Ubuntu
+PS > wsl hostname -I #Windodws
+```     
 ```bash
 # Terminal 1  
 $ roslaunch rosbridge_server rosbridge_websocket.launch
