@@ -57,12 +57,12 @@ PS > wsl hostname -I #Windodws
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 ```  
 ```bash  
-Terminal 2  
+# Terminal 2  
 $ ~/xycar_ws/src/RobotVision_xycar/xycar_sim_driving/xycar3dsimulator.x86_64   
 # Unity is on, Input Ubuntu(WSL2) IP => "ws://{000.000.000.000}:9090"  
 ```
 ```bash
-Terminal 3  
+# Terminal 3  
 $ roslaunch assignment driving.launch   
 ```
 
