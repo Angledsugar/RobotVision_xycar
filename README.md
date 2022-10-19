@@ -47,10 +47,12 @@ $ git clone https://github.com/Angledsugar/RobotVision_xycar.git
 $ cd ~/xycar_ws && catkin_make  
 
 ### 실행 방법
+Check eth0: intet 000.000.000.000
 ```bash
-# Check eth0: intet 000.000.000.000
-$ ifconfig # Ubuntu
-PS > wsl hostname -I #Windodws
+# Ubuntu  
+$ ifconfig  
+# Windows
+PS > wsl hostname -I
 ```     
 ```bash
 # Terminal 1  
