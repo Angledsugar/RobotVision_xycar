@@ -62,7 +62,7 @@ $ roslaunch rosbridge_server rosbridge_websocket.launch
 # Terminal 2
 $ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Start/RVS_start.x86_64
 $ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Start/RVS_start.exe  
-# Unity is on, Input Ubuntu(WSL2) IP => "ws://{000.000.000.000}:9090"  
+# Unity is on, Input Ubuntu(WSL2) IP => "ws://{000.000.000.000}:9090" and Press "Enter"
 ```
 ```bash  
 # Terminal 3
