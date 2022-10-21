@@ -59,12 +59,19 @@ PS > wsl hostname -I
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 ```  
 ```bash  
-# Terminal 2  
-$ ~/xycar_ws/src/RobotVision_xycar/xycar_sim_driving/xycar3dsimulator.x86_64   
+# Terminal 2
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Start/RVS_start.x86_64
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Start/RVS_start.exe  
 # Unity is on, Input Ubuntu(WSL2) IP => "ws://{000.000.000.000}:9090"  
 ```
+```bash  
+# Terminal 3
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Xycar/RVS_start.x86_64
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Xycar/RVS_start.exe  
+```
+
 ```bash
-# Terminal 3  
+# Terminal 4  
 $ roslaunch assignment driving.launch   
 ```
 
