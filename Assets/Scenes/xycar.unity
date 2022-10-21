@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17276841, g: 0.21589246, b: 0.29782626, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2986,9 +2986,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SecondsTimeout: 1
+  inputurl: {fileID: 0}
   Serializer: 0
   protocol: 0
-  RosBridgeServerUrl: ws://localhost:9090
+  RosBridgeServerUrl: 
   HostnameIP: 
 --- !u!33 &979417424942911500
 MeshFilter:

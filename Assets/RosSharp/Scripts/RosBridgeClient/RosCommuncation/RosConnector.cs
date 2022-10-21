@@ -35,21 +35,19 @@ namespace RosSharp.RosBridgeClient
     public class RosConnector : MonoBehaviour
     {
         public int SecondsTimeout = 10;
-
+        public InputField inputurl; 
         public RosSocket RosSocket { get; private set; }
         public RosSocket.SerializerEnum Serializer;
         public Protocol protocol;
         public string RosBridgeServerUrl = "ws://localhost:9090";
-        // public string RosBridgeServerUrl = GameObject.FindWithTag("Canvas").GetComponent<HostipInput>().hostip.ToString();
         public string HostnameIP; 
 
         public ManualResetEvent IsConnected { get; private set; }
 
         public virtual void Awake()
         {
-            RosBridgeServerUrl = GameObject.FindWithTag("Canvas").GetComponent<HostipInput>().hostip.ToString();
-            Destroy(GameObject.FindWithTag("Canvas"));
-            Debug.Log(RosBridgeServerUrl);
+            // Debug.Log();
+            RosBridgeServerUrl = PlayerPrefs.GetString("Hostip");
             IsConnected = new ManualResetEvent(false);
             new Thread(ConnectAndWait).Start();
         }
@@ -63,7 +61,9 @@ namespace RosSharp.RosBridgeClient
 
         protected void ConnectAndWait()
         {
+            // uiBtn_CmdExecute();
             RosSocket = ConnectToRos(protocol, RosBridgeServerUrl, OnConnected, OnClosed, Serializer);
+
             if (!IsConnected.WaitOne(SecondsTimeout * 1000))
                 Debug.LogWarning("Failed to connect to RosBridge at: " + RosBridgeServerUrl);
         }
@@ -93,5 +93,31 @@ namespace RosSharp.RosBridgeClient
             IsConnected.Reset();
             Debug.Log("Disconnected from RosBridge: " + RosBridgeServerUrl);
         }
+
+        // public void uiBtn_CmdExecute(object sender, EventArgs e)
+        // {
+        //     System.Diagnostics.ProcessStartInfo pri = new System.Diagnostics.ProcessStartInfo();
+        //     System.Diagnostics.Process pro = new System.Diagnostics.Process();
+
+        //     //실행할 파일 명 입력하기
+        //     pri.FileName = "cmd.exe";
+
+        //     //cmd 창 띄우기
+        //     pri.CreateNoWindow = false; //flase가 띄우기, true가 안 띄우기
+        //     pri.UseShellExecute = false;
+        //     pri.RedirectStandardInput = true;
+        //     pri.RedirectStandardOutput = true;
+        //     pri.RedirectStandardError = true;
+        //     pro.StartInfo = pri;
+        //     pro.Start();
+
+        //     //명령어 실행
+        //     pro.StandardInput.Write(@"wsl hostnem -I" + Environment.NewLine);
+        //     pro.StandardInput.Close();
+        //     HostnameIP = pro.StandardOutput.ReadToEnd();
+        //     pro.WaitForExit();
+        //     pro.Close();
+        //     // MessageBox.Show(resultValue);
+        // }
     }
 }
