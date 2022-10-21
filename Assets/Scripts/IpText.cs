@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class IpText : MonoBehaviour
@@ -19,10 +20,13 @@ public class IpText : MonoBehaviour
         
     }
 
-    public string Texts()
+    public string Roscusttomurl()
     {
         webip = iptext.text;
         Debug.Log(webip);
+
+        SceneManager.LoadScene("xycar");
+
         return webip;
     }
 }
