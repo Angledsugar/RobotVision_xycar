@@ -9,12 +9,12 @@ Nvidia AGX Xavier installed in Xycar is called Single-board computer (SBC). Your
 Recommend PC OS is Ubuntu 18.04 & Windows10 or 11.
 
 ### Windows Subsystem For Linux 2 (WSL2) 설치 
-=> https://learn.microsoft.com/ko-kr/windows/wsl/install  
+*참고 : https://learn.microsoft.com/ko-kr/windows/wsl/install*  
 
-Install Xming X Server for Windows (https://sourceforge.net/projects/xming/)  
+1. Install Xming X Server for Windows (https://sourceforge.net/projects/xming/)  
 *Warning* : Xming 설치 시 개인, 공용 네트워크 설정 모두 체크  
 
-Open "Windows Power shell"  
+2. Open "Windows Power shell"  
 PS> wsl --install  
 PS> wsl --install -d Ubuntu-18.04  
 PS> wsl  
