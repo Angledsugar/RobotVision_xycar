@@ -4,7 +4,6 @@
 ## ROS melodic 설치 [[Link]](http://wiki.ros.org/melodic/Installation/Ubuntu)
  
 ```bash
-# WSL2
 $ sudo apt-get update && sudo apt-get upgrade -y
 $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'  
 $ sudo apt install curl  

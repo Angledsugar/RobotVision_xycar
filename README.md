@@ -11,6 +11,53 @@ Recommend PC OS is Ubuntu 18.04 & Windows10 or 11.
 [1. Windows 10 + WSL2](https://github.com/Angledsugar/RobotVision_xycar/blob/a95447f111f7eddc6815551fd05d98336b0695bf/GettingStartedGuide/windows/windows.md)  
 [2. Ubuntu 18.04](https://github.com/Angledsugar/RobotVision_xycar/blob/a95447f111f7eddc6815551fd05d98336b0695bf/GettingStartedGuide/windows/ubuntu.md)   
 
+## Windows 실행 방법
+ 
+1. Check Host IP (eth0: intet 000.000.000.000)
+```bash
+# WSL2
+$ ifconfig  
+# Windows
+PS > wsl hostname -I
+```
+2. Run Robotvision_Xycar     
+```bash
+# (1) WSL2 Terminal 1 
+$ roslaunch rosbridge_server rosbridge_websocket.launch
+```  
+```bash  
+# (2) Use Windows Terminal or Click .exe
+# Unity is on, Input Host IP(WSL2 IP). => "ws://{000.000.000.000}:9090" and Press "Enter".
+PS > (your directory)/RobotVision_xycar/Build/Windows/Start/RVS_start.exe
+
+# If you input right host ip, ros can connect RVS. 
+PS > (your directory)/RobotVision_xycar/Build/Windows/Xycar/RVS.exe
+
+```
+```bash
+# (3) WSL2 Terminal 2 
+$ roslaunch assignment1 driving.launch   
+```
+
+## Ubuntu 실행 방법  
+```bash
+# (1) Terminal 1 
+$ roslaunch rosbridge_server rosbridge_websocket.launch
+```  
+```bash  
+# (2) Terminal 2
+# Unity is on, Input Ubuntu IP(localhost). => "ws://localhost:9090" and Press "Enter".
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Start/RVS_start.86_64
+
+# If you input right host ip, ros can connect RVS. 
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Xycar/RVS.86_64
+
+```
+```bash
+# (3) Terminal 3
+$ roslaunch assignment1 driving.launch   
+```
+
 # Assignment1 : OpenCV로 차선, 신호등 인식하기
 First class : 22.10.18  
 Deadline : 22.10.18 ~ 11.08  
