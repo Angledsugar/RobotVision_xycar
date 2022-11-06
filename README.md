@@ -1,9 +1,9 @@
-# RobotVision_xycar
-
+# RobotVision_xycar 
 ## Robot Vision System - xycar
 이 실습자료는 한양대학교 ERICA 로봇비전시스템, 비전시스템설계 교육 목적으로 제작 되었습니다. 로봇비전시스템은 로봇을 이용한 머신 비전 시스템으로 다양한 로봇 Task를 수행하는 고속/고정밀도, 실시간 시각 센서 시스템입니다.  Xytron 사의 Xycar-X 모델을 이용하여 자율주행자동차 로봇비전시스템을 학습합니다.  
 실습 설치 및 문제 발생 시 Github Issue 혹은 담당 조교 최찬역(angledsugar@hanyang.ac.kr) 문의 바랍니다.  
-
+![1](./GettingStartedGuide/5.png)
+![2](./GettingStartedGuide/4.png)
 ## Getting Started Guide
 Nvidia AGX Xavier installed in Xycar is called Single-board computer (SBC). Your Computer is called PC. Data from many sensor installed in Xycar sent to the SBC. If you want see sensor data, you do connect your PC to SBC.  Nvidia AGX Xavier OS is Jetpack 4.2.3 & ROS1 Melodic. 
 Recommend PC OS is Ubuntu 18.04 & Windows10 or 11.
@@ -59,6 +59,8 @@ $ roslaunch assignment1 driving.launch
 ```
 
 # Assignment1 : OpenCV로 차선, 신호등 인식하기
+![3](./GettingStartedGuide/1.png)
+![4](./GettingStartedGuide/2.png)
 First class : 22.10.18  
 Deadline : 22.10.18 ~ 11.08  
 Check "xycar_opencv.zip"  
@@ -85,3 +87,6 @@ Deadline : 22.11.08 ~ 11.29
 (1) 실제 신호등 데이터 셋 (https://www.aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=188)  
 (2) Xycar 신호등 (직접 제작)  
 실습 코드 : https://teachablemachine.withgoogle.com/   
+
+---
+<img src="./GettingStartedGuide/RAISElab_LOGO1.jpg">
