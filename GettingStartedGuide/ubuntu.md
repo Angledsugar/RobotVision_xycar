@@ -1,19 +1,8 @@
-# Widows + WSL2(Ubuntu 18.04)
-
-## Windows Subsystem For Linux 2 (WSL2) 설치 [[Link]](https://learn.microsoft.com/ko-kr/windows/wsl/install)  
----
-1. Install Xming X Server for Windows [[Link]](https://sourceforge.net/projects/xming/)  
-*Warning* : Xming 설치 시 개인, 공용 네트워크 설정 모두 체크  
-2. Open "Windows Power shell"  
-```bash  
-# Windows
-PS> wsl --install  
-PS> wsl --install -d Ubuntu-18.04  
-PS> wsl
-```
+# Ubuntu 18.04
+![windows_setting](./windows_setting.png)
 
 ## ROS melodic 설치 [[Link]](http://wiki.ros.org/melodic/Installation/Ubuntu)
----
+ 
 ```bash
 # WSL2
 $ sudo apt-get update && sudo apt-get upgrade -y
@@ -38,47 +27,29 @@ $ source ~/.bashrc
 ```
 
 ## 주행 시뮬레이터 패키지 설치
----
-1. Install Angledsugar/RobotVision_xycar in **WSL2**
 ```bash
-# WSL2
 $ cd ~/xycar_ws/src  
 $ sudo apt update && sudo apt upgrade -y  
 $ sudo apt install ros-melodic-rosbridge-server  
 $ git clone https://github.com/Angledsugar/RobotVision_xycar.git  
 $ cd ~/xycar_ws && catkin_make
 ```
-2. Install Angledsugar/RobotVision_xycar in **Windows**  
-(1) Go to [Angledsugar/RobotVision_xycar](https://github.com/Angledsugar/RobotVision_xycar)  
-(2) Code > Download zip  
 
-## 실행 방법
----
-1. Check Host IP (eth0: intet 000.000.000.000)
+## 실행 방법   
 ```bash
-# WSL2
-$ ifconfig  
-# Windows
-PS > wsl hostname -I
-```
-2. Run Robotvision_Xycar     
-```bash
-# (1) WSL2 Terminal 1 
+# (1) Terminal 1 
 $ roslaunch rosbridge_server rosbridge_websocket.launch
 ```  
 ```bash  
-# (2) Use Windows Terminal or Click .exe
-# Unity is on, Input Host IP(WSL2 IP). => "ws://{000.000.000.000}:9090" and Press "Enter".
-PS > (your directory)/RobotVision_xycar/Build/Windows/Start/RVS_start.exe
+# (2) Terminal 2
+# Unity is on, Input Ubuntu IP(localhost). => "ws://localhost:9090" and Press "Enter".
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Start/RVS_start.86_64
 
 # If you input right host ip, ros can connect RVS. 
-PS > (your directory)/RobotVision_xycar/Build/Windows/Xycar/RVS.exe
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Xycar/RVS.86_64
 
 ```
 ```bash
-# (3) WSL2 Terminal 2 
-$ roslaunch assignment driving.launch   
+# (3) Terminal 3
+$ roslaunch assignment1 driving.launch   
 ```
-
-
-
