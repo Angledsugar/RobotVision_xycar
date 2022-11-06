@@ -60,7 +60,7 @@ $ roslaunch assignment1 driving.launch
 
 # Assignment1 : OpenCV로 차선, 신호등 인식하기
 ![3](./GettingStartedGuide/1.png)
-![4](./GettingStartedGuide/2.png)
+![4](./GettingStartedGuide/2.png)  
 First class : 22.10.18  
 Deadline : 22.10.18 ~ 11.08  
 Check "xycar_opencv.zip"  
