@@ -61,10 +61,9 @@ $ roslaunch assignment1 driving.launch
 ```
 
 # Assignment1 : OpenCV로 차선, 신호등 인식하기
-
-<img src="./GettingStartedGuide/1.png" heigh="300px" width= "300px" align="left">  
-<img src="./GettingStartedGuide/2.png" heigh="300px" width= "300px" align="right">  
-
+<img src="./GettingStartedGuide/1.png" align="left">
+<img src="./GettingStartedGuide/2.png" align="right">  
+  
 If you control the robot right away in the real world, there are many problems. The cost of researching robots is high, but we don't know what problems will arise because the code we wrote doesn't work perfectly at once. To solve this problem, we create a Simulation environment and test the code.
 
 ### **Deadline : 22.11.08 ~ 22.12.01**
