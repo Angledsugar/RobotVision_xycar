@@ -70,7 +70,12 @@ $ roslaunch assignment1 driving.launch
 If you control the robot right away in the real world, there are many problems. The cost of researching robots is high, but we don't know what problems will arise because the code we wrote doesn't work perfectly at once. To solve this problem, we create a Simulation environment and test the code.
 
 ### **Deadline : 22.11.08 ~ 22.12.01**
-   
+  
+**RVS simulation guide**   
+'F1' : Car vision (ros)  
+'F2' : Top view  
+'F3' : Car back vision  
+  
 [1] Image Read  
 ```bash
 Image : OpenCV-ImageRead.png  
