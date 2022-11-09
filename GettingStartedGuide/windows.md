@@ -4,10 +4,6 @@
  
 1. Install Xming X Server for Windows [[Link]](https://sourceforge.net/projects/xming/)  
 *Warning* : Xming 설치 시 개인, 공용 네트워크 설정 모두 체크
-```bash
-$ echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '"'"'{print $2}'"'"'):0' >> ~/.bashrc
-$ . ~/.bashrc
-```
 
 2. Open "Windows Power shell"  
 ```bash  
@@ -15,6 +11,11 @@ $ . ~/.bashrc
 PS> wsl --install  
 PS> wsl --install -d Ubuntu-18.04  
 PS> wsl
+```
+```bash
+# WSL2
+$ echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '"'"'{print $2}'"'"'):0' >> ~/.bashrc
+$ . ~/.bashrc
 ```
 
 ## ROS melodic 설치 [[Link]](http://wiki.ros.org/melodic/Installation/Ubuntu)
