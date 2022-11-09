@@ -1,5 +1,5 @@
 # Ubuntu 18.04
-![windows_setting](./windows_setting.png)
+![windows_setting](../image/windows_setting.png)
 
 ## ROS melodic 설치 [[Link]](http://wiki.ros.org/melodic/Installation/Ubuntu)
  

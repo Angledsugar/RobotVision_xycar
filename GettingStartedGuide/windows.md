@@ -1,5 +1,5 @@
 # Widows + WSL2(Ubuntu 18.04)
-![windows_setting](./windows_setting.png)
+![windows_setting](../image/windows_setting.png)
 ## Windows Subsystem For Linux 2 (WSL2) 설치 [[Link]](https://learn.microsoft.com/ko-kr/windows/wsl/install)  
  
 1. Install Xming X Server for Windows [[Link]](https://sourceforge.net/projects/xming/)  
