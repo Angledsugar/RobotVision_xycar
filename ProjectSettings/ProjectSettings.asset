@@ -615,8 +615,10 @@ PlayerSettings:
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
-    Standalone: 0
-  il2cppCompilerConfiguration: {}
+    Server: 1
+    Standalone: 1
+  il2cppCompilerConfiguration:
+    Server: 1
   managedStrippingLevel: {}
   incrementalIl2cppBuild: {}
   suppressCommonWarnings: 1
@@ -629,6 +631,7 @@ PlayerSettings:
   assemblyVersionValidation: 1
   gcWBarrierValidation: 0
   apiCompatibilityLevelPerPlatform:
+    Server: 6
     Standalone: 6
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
