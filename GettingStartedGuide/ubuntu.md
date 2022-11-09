@@ -42,10 +42,10 @@ $ roslaunch rosbridge_server rosbridge_websocket.launch
 ```bash  
 # (2) Terminal 2
 # Unity is on, Input Ubuntu IP(localhost). => "ws://localhost:9090" and Press "Enter".
-$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Start/RVS_start.86_64
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Start/RVS_start.x86_64
 
 # If you input right host ip, ros can connect RVS. 
-$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Xycar/RVS.86_64
+$ ~/xycar_ws/src/RobotVision_xycar/Build/Linux/Xycar/RVS.x86_64
 
 ```
 ```bash
