@@ -3,7 +3,12 @@
 ## Windows Subsystem For Linux 2 (WSL2) 설치 [[Link]](https://learn.microsoft.com/ko-kr/windows/wsl/install)  
  
 1. Install Xming X Server for Windows [[Link]](https://sourceforge.net/projects/xming/)  
-*Warning* : Xming 설치 시 개인, 공용 네트워크 설정 모두 체크  
+*Warning* : Xming 설치 시 개인, 공용 네트워크 설정 모두 체크
+```bash
+$ echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '"'"'{print $2}'"'"'):0' >> ~/.bashrc
+$ . ~/.bashrc
+```
+
 2. Open "Windows Power shell"  
 ```bash  
 # Windows
