@@ -4038,12 +4038,10 @@ struct ChatController_t21BE953E1D5ADF0BA9F3B03C205203CADDC64C15  : public MonoBe
 // DisplayChange
 struct DisplayChange_t7974729A0CF91F128E82C35893A9828CB39415A7  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
 {
-	// UnityEngine.Camera DisplayChange::carview
-	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___carview_4;
 	// UnityEngine.Camera DisplayChange::topview
-	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___topview_5;
+	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___topview_4;
 	// UnityEngine.Camera DisplayChange::backview
-	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___backview_6;
+	Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* ___backview_5;
 };
 
 // DropdownSample
@@ -6362,6 +6360,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplayChange_ShowTopview_mB952DBDF7D44D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplayChange_ShowBackview_m458DC19B9F3A0CFBF9D97696ADE4E81B993FFB0E (DisplayChange_t7974729A0CF91F128E82C35893A9828CB39415A7* __this, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Camera::set_targetDisplay(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73 (Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* __this, int32_t ___value0, const RuntimeMethod* method) ;
+// System.Void UnityEngine.PlayerPrefs::DeleteAll()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void PlayerPrefs_DeleteAll_m7687D47AE64203DB76AC6754EC276DFFD0DFAB0E (const RuntimeMethod* method) ;
 // System.String UnityEngine.UI.InputField::get_text()
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR String_t* InputField_get_text_m6E0796350FF559505E4DF17311803962699D6704_inline (InputField_tABEA115F23FBD374EBE80D4FAC1D15BD6E37A140* __this, const RuntimeMethod* method) ;
 // System.Int32 System.String::get_Length()
@@ -7541,18 +7541,14 @@ IL_0036:
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplayChange_ShowCarview_mAD681677DD0E0EAC58D0B416D1CB373370274248 (DisplayChange_t7974729A0CF91F128E82C35893A9828CB39415A7* __this, const RuntimeMethod* method) 
 {
 	{
-		// carview.targetDisplay = 0;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_0 = __this->___carview_4;
-		NullCheck(L_0);
-		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_0, 0, NULL);
 		// topview.targetDisplay = 1;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_1 = __this->___topview_5;
+		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_0 = __this->___topview_4;
+		NullCheck(L_0);
+		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_0, 1, NULL);
+		// backview.targetDisplay = 2;
+		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_1 = __this->___backview_5;
 		NullCheck(L_1);
-		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_1, 1, NULL);
-		// backview.targetDisplay = 1;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_2 = __this->___backview_6;
-		NullCheck(L_2);
-		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_2, 1, NULL);
+		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_1, 2, NULL);
 		// }
 		return;
 	}
@@ -7561,18 +7557,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplayChange_ShowCarview_mAD681677DD0E0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplayChange_ShowTopview_mB952DBDF7D44DDB1015137BB143564576E63AFBB (DisplayChange_t7974729A0CF91F128E82C35893A9828CB39415A7* __this, const RuntimeMethod* method) 
 {
 	{
-		// carview.targetDisplay = 1;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_0 = __this->___carview_4;
+		// topview.targetDisplay = 1;
+		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_0 = __this->___topview_4;
 		NullCheck(L_0);
 		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_0, 1, NULL);
-		// topview.targetDisplay = 0;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_1 = __this->___topview_5;
+		// backview.targetDisplay = 0;
+		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_1 = __this->___backview_5;
 		NullCheck(L_1);
 		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_1, 0, NULL);
-		// backview.targetDisplay = 1;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_2 = __this->___backview_6;
-		NullCheck(L_2);
-		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_2, 1, NULL);
 		// }
 		return;
 	}
@@ -7581,18 +7573,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplayChange_ShowTopview_mB952DBDF7D44D
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplayChange_ShowBackview_m458DC19B9F3A0CFBF9D97696ADE4E81B993FFB0E (DisplayChange_t7974729A0CF91F128E82C35893A9828CB39415A7* __this, const RuntimeMethod* method) 
 {
 	{
-		// carview.targetDisplay = 1;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_0 = __this->___carview_4;
+		// topview.targetDisplay = 0;
+		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_0 = __this->___topview_4;
 		NullCheck(L_0);
-		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_0, 1, NULL);
-		// topview.targetDisplay = 1;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_1 = __this->___topview_5;
+		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_0, 0, NULL);
+		// backview.targetDisplay = 1;
+		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_1 = __this->___backview_5;
 		NullCheck(L_1);
 		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_1, 1, NULL);
-		// backview.targetDisplay = 0;
-		Camera_tA92CC927D7439999BC82DBEDC0AA45B470F9E184* L_2 = __this->___backview_6;
-		NullCheck(L_2);
-		Camera_set_targetDisplay_m112492A129702FD829BC11E2AE766AF5BF880C73(L_2, 0, NULL);
 		// }
 		return;
 	}
@@ -7617,6 +7605,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void DisplayChange__ctor_mDD98E018DAD8A89DE37
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void HostIp_Start_m01D1D20F80828254F9796D56C9C4217E46108E91 (HostIp_tCE8C74EB9A54A591037F8EDF630AA1D9528CD7FE* __this, const RuntimeMethod* method) 
 {
 	{
+		// PlayerPrefs.DeleteAll();
+		PlayerPrefs_DeleteAll_m7687D47AE64203DB76AC6754EC276DFFD0DFAB0E(NULL);
 		// }
 		return;
 	}
