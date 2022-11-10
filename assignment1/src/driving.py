@@ -29,7 +29,8 @@ signal.signal(signal.SIGINT, signal_handler)
 
 class Robotvisionsystem:
     def __init__(self):
-        self.image = np.empty(shape=[0]) 
+        self.image = np.empty(shape=[0])
+        self.realimage = np.empty(shape=[0]) 
         self.bridge = CvBridge() 
         self.motor = None 
         self.angle = 0
@@ -41,10 +42,11 @@ class Robotvisionsystem:
 
         rospy.init_node('driving')
         
-        self.motor = rospy.Publisher('xycar_motor', xycar_motor, queue_size=1)
-        self.unitymotor = rospy.Publisher('unitymotor', PoseStamped, queue_size=1)
-        self.image_sub = rospy.Subscriber("/unitycamera", CompressedImage , self.img_callback)
-        # image_sub = rospy.Subscriber("/usb_cam/image_raw",CompressedImage,img_callback)
+        # self.motor = rospy.Publisher('/xycar_motor', xycar_motor, queue_size=1)
+        # self.real_image = rospy.Subscriber('/usb_cam/image_raw/compressed',CompressedImage, self.realimg_callback)
+
+        self.unitymotor = rospy.Publisher('/unitymotor', PoseStamped, queue_size=1)
+        self.unity_img = rospy.Subscriber('/unitycamera', CompressedImage , self.img_callback)
 
         print ("----- Xycar self driving -----")
         self.start()    
@@ -53,6 +55,17 @@ class Robotvisionsystem:
         # print data
         try:
             self.image = self.bridge.compressed_imgmsg_to_cv2(data, "bgr8") # mono8, mono16, bgr8, rgb8, bgra8, rgba8, passthrough
+        except CvBridgeError as e:
+            print("___Error___")
+            print(e)
+        
+        # np_arr = np.formstring(data, np.unit8)
+        # self.image = cv2.imdecode(np_arr, cv2.CV_LOAD_IMAGE_COLOR)
+    
+    def realimg_callback(self, data):
+        # print data
+        try:
+            self.realimage = self.bridge.compressed_imgmsg_to_cv2(data, "bgr8") # mono8, mono16, bgr8, rgb8, bgra8, rgba8, passthrough
         except CvBridgeError as e:
             print("___Error___")
             print(e)
@@ -99,13 +112,20 @@ class Robotvisionsystem:
             continue
 
         while not rospy.is_shutdown(): # Main Loop
-            self.trackbar()
-    
-            # Task1 : Use OpenCV for Robotvisionsystem
-            '''
+            
+            # HLS Ckeck
+            # self.trackbar()
+            
+            # Task1 : White, Yellow line detection
+            # Task2 : Traffic light -> Stop or Turn Left
+            # Task3 : 90 degree line
+            # Task4 : Finish line
+
+            
             self.current_time = rospy.get_time()
             
             img = self.image.copy()
+            '''
             blur = cv2.GaussianBlur(img, (5, 5), 0)
             H, L, S = cv2.split(cv2.cvtColor(img, cv2.COLOR_BGR2HLS))
             _, L = cv2.threshold(L, 75, 110, cv2.THRESH_BINARY)
@@ -279,19 +299,27 @@ class Robotvisionsystem:
             # Draw Stopline Area x,y
             cv2.rectangle(self.image, (stop_x_min, stop_y_min), (stop_x_max, stop_y_max), (0, 0, 255), 2)
             ###############################################################
-            
+            '''
+
             # self.angled = -30
             # self.speed = 0
-            print "Angle : ", self.angled, " Speed : ", self.speed
+            
             # Publish xycar motor & unity motor
-            self.drive(self.angled, self.speed)
             self.unitydrive(self.angled, self.speed)
             
             # Check Image
-            cv2.imshow("CAM View", self.image)
-            cv2.imshow("Line", line_roi)
+            original_img = self.image.copy()
+            cv2.putText(original_img, 'Time : ', (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
+            cv2.putText(original_img, str(self.current_time), (80, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
+            cv2.putText(original_img, 'Speed : ', (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
+            cv2.putText(original_img, str(self.speed), (80, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
+            cv2.putText(original_img, 'Angled : ', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
+            cv2.putText(original_img, str(self.angle), (80, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
+
+            robotvision_horizontal = np.hstack((img, original_img))
+            cv2.imshow("RobotVision", robotvision_horizontal)
             cv2.waitKey(1)
-            '''
+            
             
             
 if __name__ == '__main__':
