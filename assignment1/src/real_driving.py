@@ -39,7 +39,7 @@ class Robotvisionsystem:
         self.CAM_FPS = 30
         self.WIDTH, self.HEIGHT = 640, 480
 
-        rospy.init_node('driving')
+        rospy.init_node('real_driving')
         
         self.motor = rospy.Publisher('/xycar_motor', xycar_motor, queue_size=1)
         self.real_image = rospy.Subscriber('/usb_cam/image_raw/compressed', CompressedImage, self.real_img_callback)
@@ -65,23 +65,6 @@ class Robotvisionsystem:
         except CvBridgeError as e:
             print("___Error___")
             print(e)
-    
-    def trackbar(self):
-        img = self.image
-        hls = cv2.cvtColor(img, cv2.COLOR_BGR2HLS)
-        cv2.namedWindow("TrackBar Windows")
-        cv2.setTrackbarPos("L-High","TrackBar Windows", 255)
-        cv2.setTrackbarPos("L-Low" ,"TrackBar Windows", 0)
-        print ":::::"
-        while cv2.waitKey(1) != ord('q'):
-            L_h = cv2.getTrackbarPos("L-High", "TrackBar Windows")
-            L_l = cv2.getTrackbarPos("L-Low" , "TrackBar Windows")
-            HLS = cv2.inRange(hls, (0, L_l, 0), (255, L_h, 255))
-            hls_out = cv2.bitwise_and(hls, hls, mask = HLS)
-            result = cv2.cvtColor(hls_out, cv2.COLOR_HSV2BGR)
-            cv2.imshow("TrackBar Windows", result)
-        
-        cv2.destoryAllWindows()
 
     def start(self):
         while not self.image.size == (self.WIDTH * self.HEIGHT * 3):
@@ -89,23 +72,19 @@ class Robotvisionsystem:
             continue
 
         while not rospy.is_shutdown(): # Main Loop
-            
-            # HLS Ckeck
-            # self.trackbar()
-            
             # Task1 : White, Yellow line detection
             # Task2 : Traffic light -> Stop or Turn Left
             # Task3 : 90 degree line
             # Task4 : Finish line
-
-            # Change Code
+            # Put on your Code
+            # ==========================================================
             self.current_time = rospy.get_time()
             img = self.image.copy()
 
             # Pub angle, speed
             self.drive(self.angle, self.speed)
 
-
+            # ==========================================================
             # Check Image
             original_img = self.image.copy()
             cv2.putText(original_img, 'Time : ', (10, 20), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
@@ -115,7 +94,7 @@ class Robotvisionsystem:
             cv2.putText(original_img, 'Angled : ', (10, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
             cv2.putText(original_img, str(self.angle), (80, 60), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (125, 125, 125), 1, cv2.LINE_AA)
 
-            robotvision_horizontal = np.hstack((img, original_img))
+            robotvision_horizontal = np.hstack((original_img, img))
             cv2.imshow("RobotVision", robotvision_horizontal)
             cv2.waitKey(1)            
             
